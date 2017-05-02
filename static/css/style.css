@@ -1,0 +1,32 @@
+body {
+    background-color: #b8b8b8;
+    font-family: 'Roboto', 'Arial Black', sans-serif;
+    height: 100%;
+    text-align: center;
+    color: black;
+}
+
+#logo {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+}
+
+#result {
+    display: none;
+    margin-top: 20px;
+}
+
+.content-container {
+    background-color: #b1dafa !important;
+}
+
+.accent-color {
+    color: #e9d791;
+}
+
+.accent-bg-color {
+    background-color: #e9d791 !important;
+}

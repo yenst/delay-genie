@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delay Genie - Flight delay predictor</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/static/vendor/semanticui/semantic.min.css">
+    <link rel="stylesheet" href="/static/vendor/semantic-calendar/calendar.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <img id="logo" src="/static/img/logo.png" width="1024" height="729" alt="logo">
+
+    <h2 class="ui header">...because not every genie is fictional...</h2>
+    <div class="ui raised very padded text container segment content-container">
+
+        <h3 class="ui horizontal divider header">Let Genie predict your delay</h3>
+        <form class="ui form" id="predict-form">
+            <div class="field">
+                <div class="two fields">
+                    <div class="field">
+                        <input type="text" name="departure_loc" placeholder="Departure location">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="arrival_loc" placeholder="Arrival location">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <input class="ui calendar" id="calendar-input" type="text" name="date"
+                       placeholder="Departure date">
+            </div>
+            <button id="submit-btn" class="ui button accent-bg-color" type="submit">Predict!</button>
+        </form>
+
+        <div id="result">
+            <h3 class="ui horizontal divider header">Genie's prediction</h3>
+        </div>
+    </div>
+
+    <script src="/static/vendor/jquery-3.2.1.min.js"></script>
+    <script src="/static/vendor/semanticui/semantic.min.js"></script>
+    <script src="/static/vendor/semantic-calendar/calendar.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
