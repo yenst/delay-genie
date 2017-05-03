@@ -18,16 +18,27 @@
             <div class="field">
                 <div class="two fields">
                     <div class="field">
-                        <input id="dep-loc-search" type="text" name="departure_loc" placeholder="Departure location">
+                        <div class="ui input left icon">
+                            <i class="plane icon"></i>
+                            <input id="dep-loc-search" type="text" name="departure_loc"
+                                   placeholder="Departure location">
+                        </div>
                     </div>
                     <div class="field">
-                        <input id="arr-loc-search" type="text" name="arrival_loc" placeholder="Arrival location">
+                        <div class="ui input left icon">
+                            <i class="plane icon"></i>
+                            <input id="arr-loc-search" type="text" name="arrival_loc" placeholder="Arrival location">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="field">
-                <input class="ui calendar" id="calendar-input" type="text" name="date"
-                       placeholder="Departure date">
+                <div class="ui calendar" id="calendar-input">
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" id="calendar-input-input" placeholder="Departure date">
+                    </div>
+                </div>
             </div>
             <button id="submit-btn" class="ui button accent-bg-color" type="submit">Predict!</button>
         </form>

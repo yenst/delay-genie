@@ -1,12 +1,14 @@
 $(function () {
     var $predictForm = $('#predict-form');
     var $submitBtn = $('#submit-btn');
-    var $resultBox = $('#result');
+    var $result = $('#result');
     var inputFields = {
         $arrLoc: $('#arr-loc-search'),
         $depLoc: $('#dep-loc-search'),
         $date: $('#calendar-input')
     };
+    var $errorBox = $('#result-error');
+    var $resultBox = $('#result-result');
 
     var DelayGenie = {
         init: function () {
@@ -16,8 +18,7 @@ $(function () {
                 firstDayOfWeek: 1,
                 today: true,
                 touchReadonly: false,
-                ampm: false,
-                disableMinute: true
+                ampm: false
             });
         },
 
@@ -64,23 +65,23 @@ $(function () {
                 var data = {
                     departure: values[0],
                     arrival: values[1],
-                    date: 1 // TODO: TIMESTAMP
+                    date: new Date(inputFields.$date.calendar('get date')).getTime()
                 };
                 DelayGenie._postPredict(data);
             });
         },
 
         _postPredict: function (data) {
-            console.log(data);
             $.ajax({
                 method: 'post',
                 url: '/predict',
                 data: JSON.stringify(data),
                 contentType: 'application/json'
             }).done(function (data) {
-                // TODO: handle okay
+                DelayGenie._toggleFailResultBox(false);
+                DelayGenie._showResultContent(data);
             }).fail(function () {
-                // TODO: handle fail
+                DelayGenie._toggleFailResultBox(true);
             }).always(function () {
                 DelayGenie._toggleLoadingButton(false);
                 DelayGenie._toggleResultBox(true);
@@ -93,10 +94,19 @@ $(function () {
 
         _toggleResultBox: function (enable) {
             if (enable) {
-                $resultBox.slideDown();
+                $result.slideDown();
             } else {
-                $resultBox.slideUp();
+                $result.slideUp();
             }
+        },
+
+        _toggleFailResultBox: function (showFailBox) {
+            $errorBox.toggle(showFailBox);
+            $resultBox.toggle(!showFailBox);
+        },
+
+        _showResultContent: function (data) {
+            // TODO
         }
     };
 
