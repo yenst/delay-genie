@@ -80,8 +80,9 @@ $(function () {
             }).done(function (data) {
                 DelayGenie._toggleFailResultBox(false);
                 DelayGenie._showResultContent(data);
-            }).fail(function () {
+            }).fail(function (err) {
                 DelayGenie._toggleFailResultBox(true);
+                DelayGenie._showErrorContent(err)
             }).always(function () {
                 DelayGenie._toggleLoadingButton(false);
                 DelayGenie._toggleResultBox(true);
@@ -106,7 +107,46 @@ $(function () {
         },
 
         _showResultContent: function (data) {
-            // TODO
+            var html = '';
+            var arrivals = data.arrival;
+            var suggestion = data.suggestion;
+            var departures = data.departure;
+
+            html += '<h4 class="ui horizontal divider header">' + departures.length + ' closest departure airports:</h4>';
+            html += '<table class="ui celled padded table">';
+            html += '<thead><tr>' +
+                '<th>Airport</th>' +
+                '<th>Predicted delay</th>' +
+                '</tr></thead><tbody>';
+            departures.forEach(function (item) {
+                html +=
+                    '<tr>' +
+                    '<td>' + item.airport + '</td>' +
+                    '<td>' + item.delay + ' minutes</td>' +
+                    '</tr>';
+            });
+            html += '</tbody></table>';
+
+            html += '<h4 class="ui horizontal divider header">' + arrivals.length + ' closest arrival airports:</h4>';
+            html += '<table class="ui celled padded table">';
+            html += '<thead><tr>' +
+                '<th>Airport</th>' +
+                '<th>Predicted delay</th>' +
+                '</tr></thead><tbody>';
+            arrivals.forEach(function (item) {
+                html +=
+                    '<tr>' +
+                    '<td>' + item.airport + '</td>' +
+                    '<td>' + item.delay + ' minutes</td>' +
+                    '</tr>';
+            });
+            html += '</tbody></table>';
+
+            $resultBox.html(html);
+        },
+
+        _showErrorContent: function (data) {
+            $errorBox.html('<pre>' + JSON.stringify(data, null, 3) + '</pre>');
         }
     };
 

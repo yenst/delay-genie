@@ -20,14 +20,15 @@
                     <div class="field">
                         <div class="ui input left icon">
                             <i class="plane icon"></i>
-                            <input id="dep-loc-search" type="text" name="departure_loc"
+                            <input required id="dep-loc-search" type="text" name="departure_loc"
                                    placeholder="Departure location">
                         </div>
                     </div>
                     <div class="field">
                         <div class="ui input left icon">
                             <i class="plane icon"></i>
-                            <input id="arr-loc-search" type="text" name="arrival_loc" placeholder="Arrival location">
+                            <input required id="arr-loc-search" type="text" name="arrival_loc"
+                                   placeholder="Arrival location">
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                 <div class="ui calendar" id="calendar-input">
                     <div class="ui input left icon">
                         <i class="calendar icon"></i>
-                        <input type="text" id="calendar-input-input" placeholder="Departure date">
+                        <input required type="text" id="calendar-input-input" placeholder="Departure date">
                     </div>
                 </div>
             </div>
@@ -46,7 +47,7 @@
         <div id="result">
             <h3 class="ui horizontal divider header">Genie's prediction</h3>
             <div id="result-error" class="ui red message"></div>
-            <div id="result-result" class="ui message">Result!</div>
+            <div id="result-result" class="ui message attached"></div>
         </div>
     </div>
 
