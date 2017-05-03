@@ -11,17 +11,17 @@
     <img id="logo" src="/static/img/logo.png" width="1024" height="729" alt="logo">
 
     <h2 class="ui header">...because not every genie is fictional...</h2>
-    <div class="ui raised very padded text container segment content-container">
 
+    <div class="ui raised very padded text container segment content-container">
         <h3 class="ui horizontal divider header">Let Genie predict your delay</h3>
         <form class="ui form" id="predict-form">
             <div class="field">
                 <div class="two fields">
                     <div class="field">
-                        <input type="text" name="departure_loc" placeholder="Departure location">
+                        <input id="dep-loc-search" type="text" name="departure_loc" placeholder="Departure location">
                     </div>
                     <div class="field">
-                        <input type="text" name="arrival_loc" placeholder="Arrival location">
+                        <input id="arr-loc-search" type="text" name="arrival_loc" placeholder="Arrival location">
                     </div>
                 </div>
             </div>
@@ -34,10 +34,14 @@
 
         <div id="result">
             <h3 class="ui horizontal divider header">Genie's prediction</h3>
+            <div id="result-error" class="ui red message"></div>
+            <div id="result-result" class="ui message">Result!</div>
         </div>
     </div>
 
     <script src="/static/vendor/jquery-3.2.1.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?language=en&libraries=places&key=AIzaSyBOyRbabpx1GmuPlAxAd8a7F7urzKZKB3k"
+            type="text/javascript"></script>
     <script src="/static/vendor/semanticui/semantic.min.js"></script>
     <script src="/static/vendor/semantic-calendar/calendar.min.js"></script>
     <script src="/static/js/script.js"></script>

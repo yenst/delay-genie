@@ -19,6 +19,10 @@ body {
     margin-top: 20px;
 }
 
+#result-error {
+    display: none;
+}
+
 .content-container {
     background-color: #b1dafa !important;
 }

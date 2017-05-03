@@ -1,5 +1,6 @@
-from flask import Flask, render_template, redirect, jsonify, request
 from time import sleep
+
+from flask import Flask, render_template, redirect, jsonify, request
 
 app = Flask(__name__)
 
@@ -11,16 +12,16 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    sleep(2)
+    sleep(2)  # FIXME
     data = request.json
     if not validate_predict_json(data):
         return jsonify({
             'error': 'Received wrong data.'
         })
+    # TODO: continue here ->
     return jsonify({
         'success': 'okay bro'
     })
-    # TODO: continue here
 
 
 @app.route('/<path>')
